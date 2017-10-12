@@ -1,52 +1,59 @@
 const mysql = require('mysql');
 const prompt = require('prompt');
+// var Table = require('cli-table');
 var connection = mysql.createConnection({
 	host: 'localhost',
 	port:3306,
 	user: 'root',
 	password: '',
-	database: bamazon
+	database: 'Bamazon'
 });
 
 let purchase = [];
 
-connection.connect();
+connection.connect(function(err) {
+  if (err) throw err;
+});
 
 connection.query('SELECT item_id, product_name, price FROM Products', function(err, result){
 	if(err) console.log(err);
-
-	var table = new Table({
-		head: ['Item ID', 'Product Name', 'Price']
-	});
-
-	for(let i = 0; i < result.length; i++) {
-		table.push([result[i].ItemID, result[i].ProductName, result[i].Price]);
+	console.log('--------------------------');
+	console.log("Currently available items: ");
+	console.log('--------------------------');
+	for (let i = 0; i < result.length; i++) {
+		var id = result[i].item_id;
+		var name = result[i].product_name;
+		var price = result[i].price;
+		// console.log('--------------------------');
+		console.log("Item ID: " + id);
+		console.log("NAME: " + name);
+		console.log("PRICE: $" + price);
+		console.log('--------------------------');				
 	}
-	console.log(table.toString());
 
-	purchase();
+	checkout();
 
 });
 
-var purchase = function() {
+var checkout = function() {
 	var productInfo = {
 		properties: {
 			itemID:{description: ("What is the ID number of the item you would like to purchase?")},
 			quantity:{description: ("How many?")}
-		},
+		}
 	};
 
 	prompt.start();
 
 	prompt.get(productInfo, function(err, res){
 		var userOrder = {
-			itemID: res.itmeID,
+			itemID: res.itemID,
 			quantity: res.quantity
 		};
 
 		purchase.push(userOrder);
 
-		connection.query('SELECT * FROM Products WHERE item_id=?', productPurchase[0].itemID, function(err, res) {
+		connection.query('SELECT * FROM Products WHERE item_id=?', purchase[0].itemID, function(err, res) {
 			if(err) console.log(err, 'That item ID does not have a record');
 
 			if(res[0].stock_quantity < purchase[0].quantity){

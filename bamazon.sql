@@ -32,10 +32,10 @@ INSERT INTO Products (item_id, product_name, department_name, price, stock_quant
 VALUES (00007, 'Heroes vs. Villans Turbo', 'games', 19.99, 30);
 
 INSERT INTO Products (item_id, product_name, department_name, price, stock_quantity)
-VALUES (00008, 'push button', 'games', 29.99, 20;
+VALUES (00008, 'hot shots golf', 'games', 29.99, 20;
 
 INSERT INTO Products (item_id, product_name, department_name, price, stock_quantity)
-VALUES (00009, 'push button', 'games', 39.99, 10);
+VALUES (00009, 'golf story', 'games', 39.99, 10);
 
 INSERT INTO Products (item_id, product_name, department_name, price, stock_quantity)
-VALUES (00010, 'push button', 'games', 59.99, 5);
+VALUES (00010, 'fifa', 'games', 59.99, 5);
