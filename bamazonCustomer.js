@@ -3,7 +3,7 @@ const prompt = require('prompt');
 // var Table = require('cli-table');
 var connection = mysql.createConnection({
 	host: 'localhost',
-	port:3300,
+	port:3306,
 	user: 'root',
 	password: '',
 	database: 'Bamazon'
@@ -21,6 +21,7 @@ connection.query('SELECT item_id, product_name, price FROM Products', function(e
 	console.log("Currently available items: ");
 	console.log('--------------------------');
 	for (let i = 0; i < result.length; i++) {
+
 		var id = result[i].item_id;
 		var name = result[i].product_name;
 		var price = result[i].price;

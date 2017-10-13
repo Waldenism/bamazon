@@ -1,0 +1,29 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "CLI amazon clone",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mysql-import": "mysql - h 127.0.0.1 -u root < bamazon.sql"
+  },
+  "dependencies": {
+    "cli-table": "^0.3.1",
+    "mysql": "^2.15.0",
+    "prompt": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Waldenism/bamazon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Waldenism/bamazon/issues"
+  },
+  "homepage": "https://github.com/Waldenism/bamazon#readme"
+}
